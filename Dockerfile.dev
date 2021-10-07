@@ -1,0 +1,5 @@
+FROM rust:alpine as builder
+LABEL stage=builder
+
+WORKDIR /my_rust_app
+COPY . /my_rust_app
