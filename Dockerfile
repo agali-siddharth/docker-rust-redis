@@ -10,4 +10,5 @@ FROM alpine
 
 COPY --from=builder /my_rust_app/target/release/my_rust_app /usr/sbin/my_rust_app
 
+# run app
 CMD ["/usr/sbin/my_rust_app"]
