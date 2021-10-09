@@ -65,21 +65,6 @@ fn parse_args() -> Result<(), String> {
 }
 
 fn main() {
-/*
-    println!("Hello, world!");
-    let client = redis::Client::open("redis://127.0.0.1/").unwrap();
-    let mut con = client.get_connection().unwrap();
-
-    let mynum :i32 = con.get("mynum").unwrap();
-    println!("mynum = {:?}", mynum);
-
-    let _ : () = con.set("mynum", 20).unwrap();
-
-    let mynum :i32 = con.get("mynum").unwrap();
-    println!("mynum = {:?}", mynum);
-*/
-
-
     match parse_args() {
         Err(e) => {println!("operation failed - {}", e); std::process::exit(1); },
         _ => {redis::cmd("SAVE");},
