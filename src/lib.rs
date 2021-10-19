@@ -18,6 +18,7 @@ fn get_server_string() -> String {
     let mut str = "redis://".to_string();
     str.push_str(server.as_str());
     str.push_str("/");
+    log::trace!("server string for connecting to redis = {}", str);
     str
 }
 

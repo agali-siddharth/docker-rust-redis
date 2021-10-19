@@ -12,5 +12,3 @@ FROM alpine
 COPY --from=builder /my_rust_app/target/release/my_rust_app /usr/sbin/my_rust_app
 
 RUN apk add --update redis
-
-ENV redis_server='redis_server'
