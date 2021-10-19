@@ -8,7 +8,7 @@ RUN apk add --update gcc musl-dev
 
 RUN apk add --update redis
 
-COPY ./start.sh .
+COPY ./start_dev.sh .
 
 # run app
-CMD ["sh", "start.sh"]
+CMD ["sh", "start_dev.sh"]
