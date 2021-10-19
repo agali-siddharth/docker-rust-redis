@@ -1,3 +1,5 @@
 /target
 nohup.out
+Cargo.lock
+dump.rdb
 /ignored
