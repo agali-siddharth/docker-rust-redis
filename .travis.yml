@@ -1,0 +1,9 @@
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker build -t sidagalidocker/my-rust-app-dev -f Dockerfile.dev .
+
+script:
+        - docker run sidagalidocker/my-rust-app-dev
