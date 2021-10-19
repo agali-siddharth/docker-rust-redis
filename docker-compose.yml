@@ -1,0 +1,8 @@
+version: '3'
+services:
+        alpine-rust-app:
+                build: .
+                entrypoint: ["tail", "-f", "/dev/null"]
+        redis-server:
+                image: 'redis:alpine'
+                hostname: redis_server

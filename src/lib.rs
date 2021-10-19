@@ -10,8 +10,19 @@ enum Command {
   Get,
 }
 
+fn get_server_string() -> String {
+    let server = match env::var("redis_server") {
+        Ok(x) => {x},
+        Err(_e) => {"127.0.0.1".to_string()}
+    };
+    let mut str = "redis://".to_string();
+    str.push_str(server.as_str());
+    str.push_str("/");
+    str
+}
+
 fn set_to_redis(key :String, value :String) -> Result<(), String> {
-  let client = redis::Client::open("redis://127.0.0.1/").unwrap();
+  let client = redis::Client::open(get_server_string().as_str()).unwrap();
   let mut con = client.get_connection().unwrap();
 
   let ret :RedisResult<()> = con.set(key, value);
@@ -22,7 +33,7 @@ fn set_to_redis(key :String, value :String) -> Result<(), String> {
 }
 
 fn get_from_redis(key: String) -> Result<String, String> {
-  let client = redis::Client::open("redis://127.0.0.1/").unwrap();
+  let client = redis::Client::open(get_server_string().as_str()).unwrap();
   let mut con = client.get_connection().unwrap();
 
   let ret :RedisResult<String> = con.get(key);

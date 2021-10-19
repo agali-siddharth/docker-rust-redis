@@ -13,7 +13,4 @@ COPY --from=builder /my_rust_app/target/release/my_rust_app /usr/sbin/my_rust_ap
 
 RUN apk add --update redis
 
-COPY ./start.sh .
-
-# run app
-CMD redis-server
+ENV redis_server='redis_server'
