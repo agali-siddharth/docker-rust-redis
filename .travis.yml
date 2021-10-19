@@ -7,7 +7,3 @@ before_install:
 
 script:
         - docker run sidagalidocker/my-rust-app-dev
-
-deploy:
-        on:
-                branch: master
