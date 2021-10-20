@@ -8,3 +8,7 @@ services:
         redis-server:
                 image: 'redis:alpine'
                 hostname: redis_server_docker
+                volumes:
+                        - ./redis_data:/data
+                        - ./redis_conf:/usr/local/etc/redis/
+                command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
